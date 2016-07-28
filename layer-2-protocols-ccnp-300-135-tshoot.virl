@@ -1273,7 +1273,7 @@ write_files:
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">5001</entry>
             <entry key="config" type="String">!
-! Last configuration change at 02:42:58 UTC Thu Jul 28 2016
+! Last configuration change at 03:09:53 UTC Thu Jul 28 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1361,7 +1361,7 @@ interface GigabitEthernet0/0
 interface GigabitEthernet0/1
  description to SW2
  ip address 157.157.157.1 255.255.255.0
- ip ospf network broadcast
+ ip ospf network point-to-point
  duplex full
  speed auto
  media-type rj45
@@ -1532,7 +1532,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">eigrp</entry>
             <entry key="static_serial_port_0" type="Integer">5002</entry>
             <entry key="config" type="String">!
-! Last configuration change at 19:21:58 UTC Tue Jul 26 2016
+! Last configuration change at 03:23:53 UTC Thu Jul 28 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1647,6 +1647,7 @@ interface GigabitEthernet0/4
 !
 !
 router eigrp 1234
+ metric weights 0 1 0 1 0 1
  network 2.2.2.2 0.0.0.0
  network 12.12.12.0 0.0.0.3
  network 24.24.24.1 0.0.0.0
@@ -1911,7 +1912,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">eigrp</entry>
             <entry key="static_serial_port_0" type="Integer">5004</entry>
             <entry key="config" type="String">!
-! Last configuration change at 02:24:15 UTC Thu Jul 28 2016
+! Last configuration change at 03:27:42 UTC Thu Jul 28 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -2344,7 +2345,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">ospf</entry>
             <entry key="static_serial_port_0" type="Integer">5008</entry>
             <entry key="config" type="String">!
-! Last configuration change at 02:50:04 UTC Thu Jul 28 2016
+! Last configuration change at 04:33:25 UTC Thu Jul 28 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -2516,7 +2517,7 @@ interface GigabitEthernet0/10
  media-type rj45
 !
 router ospf 1
- area 89 stub no-summary
+ area 89 stub
  area 89 default-cost 100000
  area 89 range 7.7.7.7 255.255.255.255 not-advertise cost 99999
  redistribute connected subnets route-map RM-CHINA
@@ -3077,7 +3078,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">ospf</entry>
             <entry key="static_serial_port_0" type="Integer">5009</entry>
             <entry key="config" type="String">!
-! Last configuration change at 01:50:49 UTC Thu Jul 28 2016
+! Last configuration change at 03:37:04 UTC Thu Jul 28 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -3216,7 +3217,6 @@ interface GigabitEthernet0/8
  ip address 89.89.89.2 255.255.255.252
  ip ospf authentication message-digest
  ip ospf authentication-key mykey
- ip ospf message-digest-key 1 md5 mykey
  ip ospf network point-to-point
  duplex full
  speed auto
