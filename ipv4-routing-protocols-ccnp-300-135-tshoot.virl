@@ -1276,7 +1276,7 @@ write_files:
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">5001</entry>
             <entry key="config" type="String">!
-! Last configuration change at 19:19:55 UTC Sat Jul 30 2016
+! Last configuration change at 20:10:29 UTC Sat Jul 30 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1461,6 +1461,7 @@ interface GigabitEthernet0/12
 !
 !
 router eigrp 1234
+ distribute-list 50 in 
  maximum-paths 2
  network 1.1.1.1 0.0.0.0
  network 12.12.12.1 0.0.0.0
@@ -1495,6 +1496,11 @@ route-map RM-OSPF-&gt;EIGRP permit 20
  set metric 1000000 1 255 1 1500
 !
 !
+access-list 50 deny   2.2.2.2
+access-list 50 deny   3.3.3.3
+access-list 50 deny   4.0.0.0 0.255.255.255
+access-list 50 deny   24.24.24.0 0.0.0.3
+access-list 50 permit any
 !
 control-plane
 !
