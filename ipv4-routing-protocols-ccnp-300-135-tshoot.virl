@@ -1276,7 +1276,7 @@ write_files:
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">5001</entry>
             <entry key="config" type="String">!
-! Last configuration change at 15:33:15 UTC Tue Aug 2 2016
+! Last configuration change at 04:40:42 UTC Wed Aug 3 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1364,7 +1364,7 @@ interface Loopback1
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 10.255.0.249 255.255.0.0
+ ip address 10.255.1.10 255.255.0.0
  duplex full
  speed auto
  media-type rj45
@@ -1381,6 +1381,7 @@ interface GigabitEthernet0/1
 interface GigabitEthernet0/2
  description to R2
  ip address 12.12.12.1 255.255.255.252
+ ip hello-interval eigrp 1234 30
  shutdown
  duplex full
  speed auto
@@ -1399,6 +1400,7 @@ interface GigabitEthernet0/3
 interface GigabitEthernet0/4
  description GigabitEthernet0/4
  no ip address
+ ip access-group 10 in
  duplex full
  speed auto
  media-type rj45
@@ -1496,6 +1498,8 @@ route-map RM-OSPF-&gt;EIGRP permit 20
  set metric 1000000 1 255 1 1500
 !
 !
+access-list 10 deny   224.0.0.10
+access-list 10 permit any
 access-list 50 deny   2.2.2.2
 access-list 50 deny   3.3.3.3
 access-list 50 deny   4.0.0.0 0.255.255.255
