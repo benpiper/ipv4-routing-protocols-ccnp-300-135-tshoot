@@ -2919,7 +2919,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">ospf</entry>
             <entry key="static_serial_port_0" type="Integer">5007</entry>
             <entry key="config" type="String">!
-! Last configuration change at 17:27:29 UTC Fri Aug 12 2016
+! Last configuration change at 17:49:39 UTC Fri Aug 12 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -3094,11 +3094,11 @@ router ospf 1
  router-id 7.7.7.7
  area 7 stub
  area 77 stub
- network 7.7.7.7 0.0.0.0 area 7
- network 7.0.0.0 0.255.255.255 area 7
+ network 7.7.7.7 0.0.0.0 area 0
+ network 7.0.0.0 0.255.255.255 area 0
  network 47.47.47.2 0.0.0.0 area 0
  network 57.57.57.2 0.0.0.0 area 0
- network 77.77.77.77 0.0.0.0 area 77
+ network 77.77.77.77 0.0.0.0 area 0
  network 78.78.78.1 0.0.0.0 area 0
  network 157.157.157.7 0.0.0.0 area 0
 !
