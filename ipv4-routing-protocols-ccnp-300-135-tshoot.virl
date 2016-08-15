@@ -3167,7 +3167,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">ospf</entry>
             <entry key="static_serial_port_0" type="Integer">5009</entry>
             <entry key="config" type="String">!
-! Last configuration change at 17:27:53 UTC Fri Aug 12 2016
+! Last configuration change at 22:17:03 UTC Mon Aug 15 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -3247,7 +3247,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 10.255.1.220 255.255.0.0
+ ip address 10.255.2.58 255.255.0.0
  duplex full
  speed auto
  media-type rj45
@@ -3354,7 +3354,7 @@ interface GigabitEthernet0/14
  media-type rj45
 !
 router ospf 2
- area 89 stub
+ area 89 stub no-summary
  network 9.9.9.9 0.0.0.0 area 89
  network 89.89.89.2 0.0.0.0 area 89
 !
